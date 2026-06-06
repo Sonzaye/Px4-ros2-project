@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
 	  'takeoff_and_hover = px4_offboard.takeoff_and_hover:main',
       'waypoint_mission = px4_offboard.waypoint_mission:main',
+      'mission_visualizer = px4_offboard.mission_visualizer:main',
         ],
     },
 )
