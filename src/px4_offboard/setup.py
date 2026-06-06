@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
 	  'takeoff_and_hover = px4_offboard.takeoff_and_hover:main',
+      'waypoint_mission = px4_offboard.waypoint_mission:main',
         ],
     },
 )
