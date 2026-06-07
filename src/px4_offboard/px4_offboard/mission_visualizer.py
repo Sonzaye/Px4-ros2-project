@@ -85,6 +85,12 @@ class MissionVisualizer(Node):
 
     # --- TF: drone pose in world frame ---
     def publish_drone_tf(self):
+        # Skip until we've received a real attitude message
+        # Default VehicleAttitude has q=[0,0,0,0] which is an invalid quaternion
+        q = self.attitude.q
+        if q[0] == 0.0 and q[1] == 0.0 and q[2] == 0.0 and q[3] == 0.0:
+            return
+
         t = TransformStamped()
         t.header.stamp = self.get_clock().now().to_msg()
         t.header.frame_id = self.WORLD_FRAME
@@ -94,8 +100,6 @@ class MissionVisualizer(Node):
         t.transform.translation.y = float(self.local_position.y)
         t.transform.translation.z = float(self.local_position.z)
 
-        # PX4 attitude is quaternion [w, x, y, z], ROS2 expects [x, y, z, w]
-        q = self.attitude.q
         t.transform.rotation.w = float(q[0])
         t.transform.rotation.x = float(q[1])
         t.transform.rotation.y = float(q[2])
