@@ -24,10 +24,14 @@ setup(
     },
     entry_points={
         'console_scripts': [
-	  'takeoff_and_hover = px4_offboard.takeoff_and_hover:main',
-      'waypoint_mission = px4_offboard.waypoint_mission:main',
-      'mission_visualizer = px4_offboard.mission_visualizer:main',
-      'yolo_detector = px4_offboard.yolo_detector:main',
+	        'takeoff_and_hover = px4_offboard.takeoff_and_hover:main',
+            'waypoint_mission = px4_offboard.waypoint_mission:main',
+            'mission_visualizer = px4_offboard.mission_visualizer:main',
+            'yolo_detector = px4_offboard.yolo_detector:main',
+            'keyboard_controller = px4_offboard.keyboard_controller:main',
+            'color_detector = px4_offboard.color_detector:main',
+            'precision_lander = px4_offboard.precision_lander:main',
+            'aruco_detector = px4_offboard.aruco_detector:main',
         ],
     },
 )

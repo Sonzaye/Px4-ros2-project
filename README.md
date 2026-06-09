@@ -11,6 +11,7 @@ The goal is to progressively advance the default drone, with custom waypoint pla
 - Flies multi-waypoint missions with a state-machine planner ![Waypoint_demo](docs/demo.gif)
 - Streams the drone's camera and runs YOLOv8 object detection on every frame ![Camera_demo](docs/camera_demo.gif)
 - Contains keyboard controller for custom on the fly waypoint setting or for failsafe situations where manual control is needed ![Keyboard demo](docs/keyboard_demo.gif)
+- Finds an assigned landpad (location not known beforehand) and lands on to the center, prototype model for object identification and being able to make the drone land on various different surfaces ![Precision demo](docs/precision_demo.gif)
 - Visualizes pose, waypoints, and trajectory live in RViz
 
 
