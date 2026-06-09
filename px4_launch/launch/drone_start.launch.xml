@@ -1,0 +1,28 @@
+<launch>
+   
+    <arg name="rviz" default="true" description="Launch RViz with the mission config"/>
+    <arg name="mission" default="false" description="Auto-start the waypoint mission"/>
+
+     <executable
+        cmd="MicroXRCEAgent udp4 -p 8888"
+        output="screen"
+    />
+
+    <node pkg="px4_offboard" exec="mission_visualizer" output="screen"/>
+    <node pkg="px4_offboard" exec="yolo_detector" output="screen"/>
+    <node pkg="ros_gz_image" exec="image_bridge" 
+          args="/world/default/model/x500_mono_cam_0/link/camera_link/sensor/camera/image"
+          output="screen"/>
+    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share px4_launch)/rviz/mission.rviz" if="$(var rviz)"/>
+  <timer period="15">
+    <node pkg="px4_offboard" exec="waypoint_mission" output="screen"
+          if="$(var mission)"/>
+  </timer>
+
+  <node pkg="ros_gz_image" exec="image_bridge"
+      args="/world/default/model/x500_mono_cam_0/link/down_camera_link/sensor/down_camera/image"
+      output="screen"/>
+
+  <node pkg="px4_offboard" exec="color_detector" output="screen"/>
+  
+</launch>
