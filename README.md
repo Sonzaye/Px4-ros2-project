@@ -18,10 +18,6 @@ The goal is to progressively advance the default drone, with custom waypoint pla
 Ubuntu 24.04 · ROS 2 Jazzy · Gazebo Harmonic · PX4 SITL (main) · uXRCE-DDS · YOLOv8
 
 
-## Architecture
-
-![Architecture](docs/architecture.png)
-
 ## Nodes
 
 | Node | Role |
